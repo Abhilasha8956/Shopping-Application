@@ -27,7 +27,8 @@ public class loginServlet extends HttpServlet {
                 {
                     HttpSession sn = request.getSession();
                     sn.setAttribute("uid", id);
-                    response.sendRedirect("Homepage.html");
+                    RequestDispatcher rd = request.getRequestDispatcher("HomePage.html");
+                    rd.forward(request, response);
                 }
                 else
                 {
