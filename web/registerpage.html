@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>E-Commerce Web Site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="bootstrap-5.0.0-beta1-dist/css/bootstrap.css" />
+    <script src="bootstrap-5.0.0-beta1-dist/js/bootstrap.js"></script>
+</head>
+
+<body style="background-image: url(image.jpg); height: inherit">
+
+    <div class="mycontainer" style="align-items: center;">
+        <div class="box" style="height: 570px;
+        width: 500px;
+        background-color: rgba(0, 0, 0, 0.2) ;
+        color: white;
+        margin: 0 auto; ">
+                    <p class="h1 w-100" style="text-align: center; color: red">Register Your Self</p>
+                    <hr class="w-75 center" style="margin: auto;">
+
+                    <form class="form-group m-5" action="RegisterServlet" method="post" autocomplete="off">
+                        Enter Your Login ID: <input type="text" name="regid" class="form-control w-75" required>   
+
+                        Enter Your Name: <input type="text" name="regname" class="form-control w-75" required>
+                        
+                        Enter Your Password: 
+                                    <input type="password" name="regpass" class="form-control w-75" required>
+                                    Instructions For Password: <img src="ex.png" alt="" style="height: 10%; width: 10%" class="m-2" onclick="myFunction()"><br>
+                        
+                        Enter Your Email: <input type="email" name="regemail" class="form-control w-75" required>
+
+                        Enter Your Mobile Number: <input type="number" name="regmobileno" class="form-control w-75" required>
+
+                        <a class="link-light" href="index.html"> Already Have An Account?</a>
+                        <hr class="w-75  mt-3 center" style="margin: auto;">
+
+                        <input type="submit" class="form-control mt-5" value="Register">
+                    </form>
+                    
+        </div>
+    </div>
+
+    <div>
+        <footer
+            style="position: fixed; left: 0; bottom: 0; width: 100%; background-color: rgba(0, 0, 0, 0.2) ;color: white;">
+            <div class="d-inline-block" style="margin-left: 100px; margin-bottom: 50px; ">
+                <table>
+                    <tr>
+                        <td rowspan="2">Contact Us: </td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td>+91 897****767</td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                        <td><a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=22MCA138@charusat.edu.org"
+                                class="link-light" target="_blank">22MCA138@charusat.edu.org</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="d-inline-block" style="margin-left: 500px;">
+                <p><a href="https://www.instagram.com/_amiruddin_samlayawala_03/" class="link-light"
+                        target="_blank">Amiruddin I. Samlayawala</a><br>
+                    15, Amroha Colony, Bawaman Pura, Panigate,<br>
+                    Vadodara-390019.</p>
+            </div>
+        </footer>
+    </div>
+    <script>
+    function myFunction() {
+      //alert("Do you want to save changes?")
+      alert("-> Password Should 8 Character Long.\n\-> It Contains One Numeric,One Aplhabetic,One Special Character('$','_','@')");
+       
+    }
+</script>
+</body>
+
+</html>
