@@ -53,19 +53,24 @@
                         <td rowspan="2">Contact Us: </td>
                         <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                         <td>+91 897****767</td>
-                    </tr>
-                    <tr>
-                        <td> </td>
-                        <td><a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=22MCA138@charusat.edu.org"
-                                class="link-light" target="_blank">22MCA138@charusat.edu.org</a></td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td>
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=22MCA083@charusat.edu.org"
+                            class="link-light" target="_blank">22MCA083@charusat.edu.org</a><br>
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=22MCA138@charusat.edu.org"
+                            class="link-light" target="_blank">22MCA138@charusat.edu.org</a>
+                        </td>
                     </tr>
                 </table>
             </div>
-            <div class="d-inline-block" style="margin-left: 500px;">
-                <p><a href="https://www.instagram.com/_amiruddin_samlayawala_03/" class="link-light"
-                        target="_blank">Amiruddin I. Samlayawala</a><br>
-                    15, Amroha Colony, Bawaman Pura, Panigate,<br>
-                    Vadodara-390017.</p>
+            <div class="d-inline-block" style="margin-left: 550px;">
+                <p><a href="https://www.instagram.com/__hot_cupid1427/" class="link-light"
+                    target="_blank">Abhilasha Patel</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="https://www.instagram.com/_amiruddin_samlayawala_03/" class="link-light"
+                       target="_blank">Amiruddin I. Samlayawala</a><br>
+                    Enterprise Computing Using Java<br>
+                    Dr. Mittal Desai
+                </p>
             </div>
         </footer>
     </div> 
@@ -75,8 +80,10 @@
             String email = request.getParameter("resetmail");
             String phone = request.getParameter("resetmobileno");
             
-            ManageUser mg = new ManageUser();
-            ResultSet rs = mg.returnUserData(id);
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cs_project","root","");
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("Select * from allusers where uid ='"+id+"'");
             while(rs.next())
             {
                 if(rs.getString(1).equals(id) && rs.getString(4).equals(email) && rs.getString(5).equals(phone))

@@ -1,3 +1,7 @@
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,9 +21,10 @@
                     </div>
                     <div class="col-lg-8 col-md-6 col-sm-12 h-100 d-flex align-item-center">
                         <ul class="text-white list-inline m-0 mx-auto" style="padding: 10px">
-                            <li class="list-inline-item h5 text-decoration-underline">Home</li>
-                            <li class="list-inline-item h5">Contact US</li>
-                            <li class="list-inline-item h5">Help</li>
+                            <li class="list-inline-item h5">Home</li>
+                            <li class="list-inline-item h5">Products</li>
+                            <li class="list-inline-item h5">New Arrivals</li>
+                            <li class="list-inline-item h5">Contact</li>
                         </ul>
                     </div>
                     <div class="col-lg-2 col-md-12 col-sm-12 h-100">
@@ -33,21 +38,33 @@
                 background-color: rgba(0, 0, 0, 0.2) ;
                 color: white;
                 margin: 0 auto; ">
-                    <form method="Post" action="">
+                <%
+                    HttpSession sn = request.getSession(false);
+                    String a = sn.getAttribute("uid").toString();
+                      Class.forName("com.mysql.jdbc.Driver");
+                      Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cs_project","root","");
+                      Statement st = con.createStatement();
+                      ResultSet rs = st.executeQuery("Select * from allusers where uid ='"+a+"'");
+                      while(rs.next()){
+                %>
+                    <form method="Post" action="">  
                     <h3>User Id:</h3>
-                    <input type="text" class="form-control w-75 m-2" value="" disabled="">
+                    <input type="text" id="uid" class="form-control w-75 m-2" value="<%= a %>" disabled="">
                     
                     <h3>Full Name:</h3>
-                    <input type="text" class="form-control w-75 m-2" value="" disabled="">
+                    <input type="text" id="uname" class="form-control w-75 m-2" value="<%= rs.getString(2) %>" disabled="">
                     
                     <h3>Email ID:</h3>
-                    <input type="text" class="form-control w-75 m-2" value="" disabled="">
+                    <input type="text" id="uemail" class="form-control w-75 m-2" value="<%= rs.getString(4) %>" disabled="">
                     
                     <h3>Mobile Number:</h3>
-                    <input type="text" class="form-control w-75 m-2" value="" disabled="">
+                    <input type="text" id="unumber" class="form-control w-75 m-2" value="<%= rs.getString(5) %>" disabled="">
                     
                     <input type="submit" class="form-control mt-5 mb-5" Value="Update Profile">
                     </form>
+                    <%
+                    }
+                    %>
                 </div>
             </div>
         </div>

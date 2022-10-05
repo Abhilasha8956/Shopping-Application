@@ -29,7 +29,6 @@
             30
         </session-timeout>
     </session-config>
-    
     <context-param>
         <param-name>Connection</param-name>
         <param-value>jdbc:mysql://localhost:3306/trail</param-value>
@@ -46,4 +45,9 @@
         <param-name>Driver</param-name>
         <param-value>com.mysql.jdbc.Driver</param-value>
     </context-param>
+    <welcome-file-list>
+        <welcome-file>
+            index.html
+        </welcome-file>
+    </welcome-file-list>
 </web-app>

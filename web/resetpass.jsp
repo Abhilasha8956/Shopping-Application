@@ -48,19 +48,24 @@
                         <td rowspan="2">Contact Us: </td>
                         <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                         <td>+91 897****767</td>
-                    </tr>
-                    <tr>
-                        <td> </td>
-                        <td><a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=22MCA138@charusat.edu.org"
-                                class="link-light" target="_blank">22MCA138@charusat.edu.org</a></td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td>
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=22MCA083@charusat.edu.org"
+                            class="link-light" target="_blank">22MCA083@charusat.edu.org</a><br>
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=22MCA138@charusat.edu.org"
+                            class="link-light" target="_blank">22MCA138@charusat.edu.org</a>
+                        </td>
                     </tr>
                 </table>
             </div>
-            <div class="d-inline-block" style="margin-left: 500px;">
-                <p><a href="https://www.instagram.com/_amiruddin_samlayawala_03/" class="link-light"
-                        target="_blank">Amiruddin I. Samlayawala</a><br>
-                    15, Amroha Colony, Bawaman Pura, Panigate,<br>
-                    Vadodara-390019.</p>
+            <div class="d-inline-block" style="margin-left: 550px;">
+                <p><a href="https://www.instagram.com/__hot_cupid1427/" class="link-light"
+                    target="_blank">Abhilasha Patel</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="https://www.instagram.com/_amiruddin_samlayawala_03/" class="link-light"
+                       target="_blank">Amiruddin I. Samlayawala</a><br>
+                    Enterprise Computing Using Java<br>
+                    Dr. Mittal Desai
+                </p>
             </div>
         </footer>
     </div>
@@ -69,8 +74,10 @@
             String id = request.getParameter("resetid");
             String npass = request.getParameter("resetpass");
             
-            ManageUser mg = new ManageUser();
-            int val = mg.updateUserPassword(id, npass);
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cs_project","root","");
+            Statement st = con.createStatement();
+            int val = st.executeUpdate("Update `allusers` set upass='"+npass+"' where uid = '"+id+"'");
             if(val>0)
             {
                 response.sendRedirect("index.html");
