@@ -36,9 +36,10 @@
             </div>
         </div>
         <div style="min-height: fit-content; padding-bottom: 120px">
+            <h2 class="text-decoration-underline text-white text-center" style="font-family: montserrat;">PRODUCTS</h2>
+            <h6 class="text-left text-white h5" style="margin-left: 200px"><a a href="AddPro.jsp" class="link-light text-decoration-none">Add Product</a></h6>   
             <center>
-                <h2 class="text-decoration-underline text-white" style="font-family: montserrat;">PRODUCTS</h2>
-                <table class="table table-responsive border table-striped w-75 text-center">
+                <table class="table table-responsive border table-striped text-center">
                     <thead>
                         <th>Serial Number</th>
                         <th>Product ID</th>
@@ -68,8 +69,8 @@
                                 <td><%= rs.getInt(5) %></td>
                                 <td><%= rs.getInt(4) %></td>
                                 <td><%= rs.getString(6) %></td>
-                                <td><input class="btn btn-primary" type="button" value="Edit"></td>
-                                <td><input class="btn btn-danger" type="button" value="Delete"></td>
+                                <td><input class="btn btn-primary w-50" type="button" value="Edit"></td>
+                                <td><input class="btn btn-danger w-50" type="button" value="Delete"></td>
                             </tr>
                             <%
                         }
