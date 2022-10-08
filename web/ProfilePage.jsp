@@ -21,10 +21,10 @@
                     </div>
                     <div class="col-lg-8 col-md-6 col-sm-12 h-100 d-flex align-item-center">
                         <ul class="text-white list-inline m-0 mx-auto" style="padding: 10px">
-                            <li class="list-inline-item h5">Home</li>
-                            <li class="list-inline-item h5">Products</li>
-                            <li class="list-inline-item h5">New Arrivals</li>
-                            <li class="list-inline-item h5">Contact</li>
+                            <li class="list-inline-item h5"><a href="" class="link-light">Home</a></li>
+                            <li class="list-inline-item h5"><a href="" class="link-light">Products</a></li>
+                            <li class="list-inline-item h5"><a href="" class="link-light">New Arrivals</a></li>
+                            <li class="list-inline-item h5"><a href="" class="link-light">Contact</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-2 col-md-12 col-sm-12 h-100">
