@@ -26,7 +26,7 @@
                         <li class="list-inline-item h5 ml-2"><a href="listCategory.jsp" class="link-light text-decoration-none">List of Categories</a></li>
                         <li class="list-inline-item h5 text-decoration-underline ml-2"><a href="#" class="link-light text-decoration-none">List of Products</a></li>
                         <li class="list-inline-item h5 ml-2"><a href="#" class="link-light text-decoration-none">Reports</a></li>
-                        <li class="list-inline-item h5 ml-2"><a href="#" class="link-light text-decoration-none">Users</a></li>
+                        <li class="list-inline-item h5 ml-2"><a href="listUsers.jsp" class="link-light text-decoration-none">Users</a></li>
                         <li class="list-inline-item h5 ml-2"><a href="#" class="link-light text-decoration-none">Offers & Discount</a></li>
                     </ul>
                 </div>
@@ -35,7 +35,7 @@
                 </div>
             </div>
         </div>
-        <div style="min-height: fit-content; padding-bottom: 120px">
+        <div style="min-height: fit-content; padding-bottom: 10px">
             <h2 class="text-decoration-underline text-white text-center" style="font-family: montserrat;">PRODUCTS</h2>
             <h6 class="text-left text-white h5" style="margin-left: 200px"><a a href="AddPro.jsp" class="link-light text-decoration-none">Add Product</a></h6>   
             <center>
@@ -69,8 +69,14 @@
                                 <td><%= rs.getInt(5) %></td>
                                 <td><%= rs.getInt(4) %></td>
                                 <td><%= rs.getString(6) %></td>
-                                <td><input class="btn btn-primary w-50" type="button" value="Edit"></td>
-                                <td><input class="btn btn-danger w-50" type="button" value="Delete"></td>
+                                <form action="editProduct.jsp" method="Post">
+                                    <input type="hidden" value="<%= rs.getInt(1) %>" name="pid">
+                                <td><input class="btn btn-primary w-50" type="submit" value="Edit"></td>
+                                </form>
+                                <form action="DeleteProduct.jsp" method="Post">
+                                    <input type="hidden" value="<%= rs.getInt(1) %>" name="pid">
+                                    <td><input class="btn btn-danger w-50" type="submit" value="Delete" name="pID"></td>
+                                </form>
                             </tr>
                             <%
                         }
@@ -80,7 +86,7 @@
         </div>        
         <div>
             <footer
-                style="height:120px; position: absolute; bottom: 0; width: 100%; background-color: rgba(0, 0, 0, 0.2) ;color: white;">
+                style="height:120px; bottom: 0; width: 100%; background-color: rgba(0, 0, 0, 0.2) ;color: white;">
                 <div class="d-inline-block" style="margin-left: 100px; margin-bottom: 50px; ">
                     <table class="table-responsive">
                         <tr>

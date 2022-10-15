@@ -19,9 +19,9 @@
             <hr class="w-75 center" style="margin: auto;">
 
             <form class="form-group m-5" method="Post" action="#" autocomplete="off">
-                Login ID: <input type="text" name="logid" class="form-control w-75" required>
+                Login ID: <input type="text" name="logid" class="form-control w-75" onkeyup="MyFun()" required>
 
-                Password: <input type="password" name="logpass" class="form-control w-75" required>
+                Password: <input type="password" name="logpass" class="form-control w-75" onkeyup="MyFun()" required>
 
                 <hr class="w-75  mt-3 center" style="margin: auto;">
                 <center>

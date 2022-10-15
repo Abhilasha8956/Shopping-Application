@@ -1,13 +1,17 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.Connection"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Administration Home Page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" media="screen" href="bootstrap-5.0.0-beta1-dist/css/bootstrap.css" />
-    <script src="bootstrap-5.0.0-beta1-dist/js/bootstrap.js"></script>
-</head>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Users</title>
+        <link rel="stylesheet" type="text/css" media="screen" href="bootstrap-5.0.0-beta1-dist/css/bootstrap.css" />
+        <script src="bootstrap-5.0.0-beta1-dist/js/bootstrap.js"></script>
+    </head>
     <body style="background-image: url(image.jpg); height: inherit">
         <div>
             <div class="container-fluid" style="height: fit-content; background-color: rgba(0, 0, 0, 0.2)">
@@ -17,11 +21,11 @@
                     </div>
                     <div class="col-lg-8 col-md-6 col-sm-12 h-100 d-flex align-item-center">
                         <ul class="text-white list-inline m-0 mx-auto" style="padding: 10px">
-                            <li class="list-inline-item h5 text-decoration-underline ml-2"><a href="#" class="link-light">Home</a></li>
+                            <li class="list-inline-item h5 ml-2"><a href="HomePageAdmin.html" class="link-light text-decoration-none">Home</a></li>
                             <li class="list-inline-item h5 ml-2"><a href="listCategory.jsp" class="link-light text-decoration-none">List of Categories</a></li>
                             <li class="list-inline-item h5 ml-2"><a href="listProducts.jsp" class="link-light text-decoration-none">List of Products</a></li>
                             <li class="list-inline-item h5 ml-2"><a href="#" class="link-light text-decoration-none">Reports</a></li>
-                            <li class="list-inline-item h5 ml-2"><a href="listUsers.jsp" class="link-light text-decoration-none">Users</a></li>
+                            <li class="list-inline-item h5 text-decoration-underline ml-2"><a href="#" class="link-light text-decoration-none">Users</a></li>
                             <li class="list-inline-item h5 ml-2"><a href="#" class="link-light text-decoration-none">Offers & Discount</a></li>
                         </ul>
                     </div>
@@ -30,42 +34,46 @@
                     </div>
                 </div>
             </div>
-            <center>
-            <div style="background-color: black; color: white; text-align: center; width: fit-content" class="m-3 p-2">
-                &nbsp;&nbsp;&nbsp;&nbsp;<label style="text-decoration: underline; font-family: montserrat" class="h5"> 
-                    THERE'S NO SHORTAGE OF REMARKABLE IDEAS, WHAT'S MISSING IS THE WILL TO EXECUTE THEM.</label> 
-                &nbsp;&nbsp;&nbsp;&nbsp;</div>
-                <hr class="link-light w-75">
-            <div class="m-3 p-2">
-                <table class="table table-responsive table-striped w-75">
-                    <thead>
-                        <th colspan="2" style="text-align: center">OUR PRIME CATEGORIES</th>
-                    </thead>
-                    <tr style="text-align: center; color: white">
-                        <td><a href="electronicsPage.jsp" class="link-light" style="text-decoration: none">ELECTRONICS</a></td>
-                        <td><a href="wears.jsp" class="link-light" style="text-decoration: none">MEN/WOMEN WEARS</a></td>
-                    </tr>
-                    <tr style="text-align: center; color: white">
-                        <td><a href="HomeApp.jsp" class="link-light" style="text-decoration: none">HOME APPLIANCES</a></td>
-                        <td><a href="mobileass.jsp" class="link-light" style="text-decoration: none">MOBILE ACCESSORIES</a></td>
-                    </tr>
-                    <tr style="text-align: center; color: white">
-                        <td><a href="foot.jsp" class="link-light" style="text-decoration: none">FOOT WEAR</a></td>
-                        <td><a href="crockery.jsp" class="link-light" style="text-decoration: none">CROCKERY</a></td>
-                    </tr>
-                    <tr>
-                        <th colspan="2" style="text-align: center"><a href="AddPro.jsp" class="link-dark" style="text-decoration: none">ADD NEW PRODUCT</a></th>
-                    </tr>
-                    <tr>
-                        <th colspan="2" style="text-align: center"><a href="addCat.html" class="link-dark" style="text-decoration: none">ADD NEW CATEGORY</a></th>
-                    </tr>
-                </table>
-            </div>
-            <hr class="link-light w-75">
-            </center>         
+            <div style="min-height: fit-content; padding-bottom: 120px">
+                <h2 class="text-decoration-underline text-white text-center" style="font-family: montserrat;">Users</h2> 
+                <center>
+                    <table class="table table-responsive border table-striped text-center">
+                        <thead>
+                            <th>Serial Number</th>
+                            <th>User ID</th>
+                            <th>User Name</th>
+                            <th>User Email</th>
+                            <th>Action</th>
+                        </thead>
+                        <%
+                            Class.forName("com.mysql.jdbc.Driver");
+                            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cs_project","root","");
+                            Statement st = con.createStatement();
+                            ResultSet rs = st.executeQuery("Select * from `allUsers`");
+                            int temp;
+                            temp = 0;
+                            while(rs.next())
+                            { temp++;
+                                %>
+                                <tr class="text-white">
+                                    <td><%= temp %></td>
+                                    <td><%= rs.getString(1) %></td>
+                                    <td><%= rs.getString(2) %></td>
+                                    <td><%= rs.getString(3) %></td>
+                                    <form action="" method="Post">
+                                        <input type="hidden" value="<%= rs.getString(1) %>">
+                                        <td><input class="btn btn-danger w-50" type="submit" value="Delete" name="pID"></td>
+                                    </form>
+                                </tr>
+                                <%
+                            }
+                        %>
+                    </table>
+                </center>
+            </div>        
             <div>
                 <footer
-                    style="position: fixed; left: 0; bottom: 0; width: 100%; background-color: rgba(0, 0, 0, 0.2) ;color: white;">
+                    style="height:120px; position: absolute; bottom: 0; width: 100%; background-color: rgba(0, 0, 0, 0.2) ;color: white;">
                     <div class="d-inline-block" style="margin-left: 100px; margin-bottom: 50px; ">
                         <table class="table-responsive">
                             <tr>

@@ -42,7 +42,7 @@ public class RegisterFilter implements Filter {
                     out.println("<h1>Password Should Contain At Least One Special Character</h1>");
                     out.println("<h4><a href='registerpage.html' class='link-dark'>Back To Register Page</a></h4>");
                 }
-                else if(!(pass.contains("1") || pass.contains("2") || pass.contains("3") || pass.contains("4") || pass.contains("5") || pass.contains("6") || pass.contains("7") || pass.contains("8") || pass.contains("9") || pass.contains("10")))
+                else if(!(pass.contains("1") || pass.contains("2") || pass.contains("3") || pass.contains("4") || pass.contains("5") || pass.contains("6") || pass.contains("7") || pass.contains("8") || pass.contains("9") || pass.contains("0")))
                 {
                     out.println("<h1>Password Should Contain At Least One Numeric Character</h1>");
                     out.println("<h4><a href='registerpage.html' class='link-dark'>Back To Register Page</a></h4>");
