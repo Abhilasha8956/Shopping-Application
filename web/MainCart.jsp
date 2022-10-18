@@ -68,6 +68,7 @@
                                         <th>Quantity</th>
                                         <th>Product Seller</th>
                                         <th>Action</th>
+                                        <th>Action</th>
                                     </thead>
                             <%
                             ResultSet rs2 = st.executeQuery("Select * from `cart`");
@@ -75,7 +76,7 @@
                                 while(rs2.next())
                                 { tempor++;
                                     %>
-                                    <form method="Post" action="#">
+                                    <form method="Post" action="ManageCart.jsp">
                                         <tr class="text-white">
                                             <td><%= tempor %></td>
                                             <td>
@@ -102,7 +103,11 @@
 
                                                 <input type="hidden" value="<%= rs2.getInt(2) %>" name="pid">
                                                 <input type="hidden" value="<%= rs2.getInt(1) %>" name="cid">
-                                            <td><input class="btn btn-primary w-75" type="submit" value="Book Order Now"></td> 
+                                                <td><input class="btn btn-primary w-75" type="submit" name="abc" value="Book Order Now">
+                                            </td> 
+                                            <td>
+                                                <td><input class="btn btn-danger w-75" type="submit" name="abc" value="Remove From Cart">
+                                            </td>
                                         </tr>
                                     </form>
                                     <%
