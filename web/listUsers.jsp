@@ -34,7 +34,7 @@
                     </div>
                 </div>
             </div>
-            <div style="min-height: fit-content; padding-bottom: 120px">
+            <div style="min-height: fit-content; padding-bottom: 10px">
                 <h2 class="text-decoration-underline text-white text-center" style="font-family: montserrat;">Users</h2> 
                 <center>
                     <table class="table table-responsive border table-striped text-center">
@@ -73,7 +73,7 @@
             </div>        
             <div>
                 <footer
-                    style="height:120px; position: absolute; bottom: 0; width: 100%; background-color: rgba(0, 0, 0, 0.2) ;color: white;">
+                    style="height:120px; bottom: 0; width: 100%; background-color: rgba(0, 0, 0, 0.2) ;color: white;">
                     <div class="d-inline-block" style="margin-left: 100px; margin-bottom: 50px; ">
                         <table class="table-responsive">
                             <tr>

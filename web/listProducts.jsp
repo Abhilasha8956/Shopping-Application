@@ -37,7 +37,24 @@
         </div>
         <div style="min-height: fit-content; padding-bottom: 10px">
             <h2 class="text-decoration-underline text-white text-center" style="font-family: montserrat;">PRODUCTS</h2>
-            <h6 class="text-left text-white h5" style="margin-left: 200px"><a a href="AddPro.jsp" class="link-light text-decoration-none">Add Product</a></h6>   
+            <h6 class="text-left text-white h5 d-inline" style="margin-left: 200px"><a a href="AddPro.jsp" class="link-light text-decoration-none">Add Product</a></h6>
+            <h5 class="text-left text-white h-3 d-inline" style="margin-left: 600px">Add Product: 
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <select>
+                    <option disabled="" selected="">Select Category</option>
+                        <%
+                            Class.forName("com.mysql.jdbc.Driver");
+                            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cs_project","root","");
+                            Statement st = con.createStatement();
+                            ResultSet rs = st.executeQuery("Select * from `categories`");
+                            while(rs.next()){
+                                %>
+                                <option value="<%= rs.getInt(1) %>"><%= rs.getString(2) %></option>
+                                <%
+                            }
+                        %>
+                </select>
+            </h5>
             <center>
                 <table class="table table-responsive border table-striped text-center">
                     <thead>
@@ -53,28 +70,28 @@
                     </thead>
                     <%
                         Class.forName("com.mysql.jdbc.Driver");
-                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cs_project","root","");
-                        Statement st = con.createStatement();
-                        ResultSet rs = st.executeQuery("Select * from `products`");
+                        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cs_project","root","");
+                        st = con.createStatement();
+                        ResultSet rs2 = st.executeQuery("Select * from `products`");
                         int temp;
                         temp = 0;
-                        while(rs.next())
+                        while(rs2.next())
                         { temp++;
                             %>
                             <tr class="text-white">
                                 <td><%= temp %></td>
-                                <td><%= rs.getInt(1) %></td>
-                                <td><%= rs.getString(2) %></td>
-                                <td><%= rs.getString(3) %></td>
-                                <td><%= rs.getInt(5) %></td>
-                                <td><%= rs.getInt(4) %></td>
-                                <td><%= rs.getString(6) %></td>
+                                <td><%= rs2.getInt(1) %></td>
+                                <td><%= rs2.getString(2) %></td>
+                                <td><%= rs2.getString(3) %></td>
+                                <td><%= rs2.getInt(5) %></td>
+                                <td><%= rs2.getInt(4) %></td>
+                                <td><%= rs2.getString(6) %></td>
                                 <form action="editProduct.jsp" method="Post">
-                                    <input type="hidden" value="<%= rs.getInt(1) %>" name="pid">
+                                    <input type="hidden" value="<%= rs2.getInt(1) %>" name="pid">
                                 <td><input class="btn btn-primary w-50" type="submit" value="Edit"></td>
                                 </form>
                                 <form action="DeleteProduct.jsp" method="Post">
-                                    <input type="hidden" value="<%= rs.getInt(1) %>" name="pid">
+                                    <input type="hidden" value="<%= rs2.getInt(1) %>" name="pid">
                                     <td><input class="btn btn-danger w-50" type="submit" value="Delete" name="pID"></td>
                                 </form>
                             </tr>
