@@ -24,6 +24,10 @@
         <servlet-name>AddProduct</servlet-name>
         <servlet-class>AddProduct</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>addOrder</servlet-name>
+        <servlet-class>addOrder</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>loginServlet</servlet-name>
         <url-pattern>/loginServlet</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>AddProduct</servlet-name>
         <url-pattern>/AddProduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addOrder</servlet-name>
+        <url-pattern>/addOrder</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

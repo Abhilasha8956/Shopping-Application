@@ -21,10 +21,11 @@
                     </div>
                     <div class="col-lg-8 col-md-6 col-sm-12 h-100 d-flex align-item-center">
                         <ul class="text-white list-inline m-0 mx-auto" style="padding: 10px">
-                            <li class="list-inline-item h5"><a href="" class="link-light">Home</a></li>
-                            <li class="list-inline-item h5"><a href="" class="link-light">Products</a></li>
-                            <li class="list-inline-item h5"><a href="" class="link-light">New Arrivals</a></li>
-                            <li class="list-inline-item h5"><a href="" class="link-light">Contact</a></li>
+                            <li class="list-inline-item h5 border border-success p-3 ml-2"><a href="HomePage.html" class="link-light text-decoration-none">Home</a></li>
+                            <li class="list-inline-item h5 border border-success p-3 ml-2"><a href="listProduct_User.jsp" class="link-light text-decoration-none">Products</a></li>
+                            <li class="list-inline-item h5 border border-success p-3 ml-2"><a href="MyOrders.jsp" class="link-light text-decoration-none">My Orders</a></li>
+                            <li class="list-inline-item h5 border border-success p-3 ml-2"><a href="MainCart.jsp" class="link-light text-decoration-none">Go to Cart</a></li>
+                            <li class="list-inline-item h5 border border-success p-3 ml-2"><a href="#" class="link-light text-decoration-none">Help</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-2 col-md-12 col-sm-12 h-100">

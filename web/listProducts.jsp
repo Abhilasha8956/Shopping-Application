@@ -103,7 +103,7 @@
         </div>        
         <div>
             <footer
-                style="height:120px; bottom: 0; width: 100%; background-color: rgba(0, 0, 0, 0.2) ;color: white;">
+                style="height:120px; bottom: 0; width: 100%; background-color: rgba(0, 0, 0, 0.2); color: white;">
                 <div class="d-inline-block" style="margin-left: 100px; margin-bottom: 50px; ">
                     <table class="table-responsive">
                         <tr>
