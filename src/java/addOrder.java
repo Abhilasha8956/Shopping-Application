@@ -19,6 +19,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class addOrder extends HttpServlet {
 
@@ -26,12 +27,18 @@ public class addOrder extends HttpServlet {
             throws ServletException, IOException, ClassNotFoundException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            if("POST".equals(request.getMethod())) {
+                
+                HttpSession sn = request.getSession(false);
+                String a = sn.getAttribute("uid").toString();
+            
                 String id = request.getParameter("cid");
+                
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cs_project","root","");
                 Statement st = con.createStatement();
+                
                 ResultSet rs = st.executeQuery("Select * From `cart` where C_ID = '"+id+"'");
+                
                 String pid="",pname="",pdesc="",seller="",price="",qunt="",catid="";
                 while(rs.next())
                 {
@@ -43,25 +50,30 @@ public class addOrder extends HttpServlet {
                     seller = rs.getString(6);
                     catid = rs.getString(7);
                 }
+                
                 String catName = "";
                 ResultSet rs2 = st.executeQuery("Select * From `categories` where C_ID = '"+catid+"'");
+                
                 while(rs2.next())
                 {
                     catName = rs2.getString(2);
                 }
-
+                
                 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
                 LocalDateTime now = LocalDateTime.now();  
-
-                int op = st.executeUpdate("Insert into `orders` (p_id, op_name, op_desc, op_price, op_qty, oc_name, op_seller, o_time) values ('"+pid+"','"+pname+"','"+pdesc+"','"+price+"','"+qunt+"','"+catName+"','"+seller+"','"+dtf.format(now)+"')");
+                
+                int op = st.executeUpdate("Insert into `orders` (p_id, op_name, op_desc, op_price, op_qty, oc_name, op_seller, o_time, user_id) values ('"+pid+"','"+pname+"','"+pdesc+"','"+price+"','"+qunt+"','"+catName+"','"+seller+"','"+dtf.format(now)+"','"+a+"')");
                 if(op>0)
                 {
-                    response.sendRedirect("MyOrders.jsp");
+                    int opt = st.executeUpdate("Delete From Cart Where C_ID = '"+id+"'");
+                    if(opt>0)
+                        response.sendRedirect("MyOrders.jsp");
+                    else
+                        response.sendRedirect("MainCart.jsp");
                 }
                 else{
                     response.sendRedirect("MainCart.jsp");
                 }
-            }
         }
     }
     @Override

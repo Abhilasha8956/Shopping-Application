@@ -13,6 +13,9 @@
     <body>
         
         <%
+                HttpSession sn = request.getSession(false);
+                String ab = sn.getAttribute("uid").toString();
+                
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cs_project","root","");
                 Statement st = con.createStatement();
@@ -24,7 +27,7 @@
                 String cat = request.getParameter("cat");
                 String Seller = request.getParameter("pseller");
                 int temp = 1;
-                int a = st.executeUpdate("Insert Into Cart (C_PID, C_PDesc, C_PQty, C_pPrice, C_Pseller, CAT_ID, C_PName) Values ('"+id+"','"+dsc+"','"+temp+"','"+price+"','"+Seller+"','"+cat+"','"+name+"')");
+                int a = st.executeUpdate("Insert Into Cart (C_PID, C_PDesc, C_PQty, C_pPrice, C_Pseller, CAT_ID, C_PName, uid) Values ('"+id+"','"+dsc+"','"+temp+"','"+price+"','"+Seller+"','"+cat+"','"+name+"','"+ab+"')");
                 if(a<0)
                 {
                     response.sendRedirect("listProduct_User.jsp");

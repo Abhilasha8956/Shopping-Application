@@ -39,10 +39,14 @@
             <div style="min-height: 520px; padding-bottom: 10px">
                 <h2 class="text-decoration-underline text-white text-center" style="font-family: montserrat;">MY CART</h2>
                 <%
+                    
+                            HttpSession sn = request.getSession(false);
+                            String ab = sn.getAttribute("uid").toString();
+                
                             Class.forName("com.mysql.jdbc.Driver");
                             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cs_project","root","");
                             Statement st = con.createStatement();
-                            ResultSet rs = st.executeQuery("Select * from `cart`");
+                            ResultSet rs = st.executeQuery("Select * from `cart` where uid = '"+ab+"'");
                             int temp,row_count=0;
                             temp = 0;
                             while(rs.next())
@@ -72,7 +76,7 @@
                                     </thead>
                                     <%
                                         int sum = 0;
-                                    ResultSet rs2 = st.executeQuery("Select * from `cart`");
+                                    ResultSet rs2 = st.executeQuery("Select * from `cart` where uid = '"+ab+"'");
                                     int tempor=0;
                                         while(rs2.next())
                                         { tempor++;

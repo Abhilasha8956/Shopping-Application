@@ -51,11 +51,14 @@
                             <th>Order Date-Time</th>
                         </thead>
                         <%
+                            HttpSession sn = request.getSession(false);
+                            String ab = sn.getAttribute("uid").toString();
+                
                             String s = "OxAaMca24";
                             Class.forName("com.mysql.jdbc.Driver");
                             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cs_project","root","");
                             Statement st = con.createStatement();
-                            ResultSet rs = st.executeQuery("Select * from `orders`");
+                            ResultSet rs = st.executeQuery("Select * from `orders` where user_id = '"+ab+"'");
                             int temp;
                             temp = 0;
                             while(rs.next())
