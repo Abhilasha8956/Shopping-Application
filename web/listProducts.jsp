@@ -35,7 +35,7 @@
                 </div>
             </div>
         </div>
-        <div style="min-height: fit-content; padding-bottom: 10px">
+        <div style="min-height: 520px; padding-bottom: 10px">
             <h2 class="text-decoration-underline text-white text-center" style="font-family: montserrat;">PRODUCTS</h2>
             <h6 class="text-left text-white h5 d-inline" style="margin-left: 200px"><a a href="AddPro.jsp" class="link-light text-decoration-none">Add Product</a></h6>
             <h5 class="text-left text-white h-3 d-inline" style="margin-left: 600px">Add Product: 
@@ -101,36 +101,7 @@
                 </table>
             </center>
         </div>        
-        <div>
-            <footer
-                style="height:120px; bottom: 0; width: 100%; background-color: rgba(0, 0, 0, 0.2); color: white;">
-                <div class="d-inline-block" style="margin-left: 100px; margin-bottom: 50px; ">
-                    <table class="table-responsive">
-                        <tr>
-                            <td rowspan="2">Contact Us: </td>
-                            <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                            <td>+91 897****767</td>
-                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                            <td>
-                                <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=22MCA083@charusat.edu.org"
-                                class="link-light" target="_blank">22MCA083@charusat.edu.org</a><br>
-                                <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=22MCA138@charusat.edu.org"
-                                class="link-light" target="_blank">22MCA138@charusat.edu.org</a>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="d-inline-block" style="margin-left: 550px;">
-                    <p><a href="https://www.instagram.com/__hot_cupid1427/" class="link-light"
-                        target="_blank">Abhilasha Patel</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="https://www.instagram.com/_amiruddin_samlayawala_03/" class="link-light"
-                           target="_blank">Amiruddin I. Samlayawala</a><br>
-                        Enterprise Computing Using Java<br>
-                        Dr. Mittal Desai
-                    </p>
-                </div>
-            </footer>
-        </div>
+        <jsp:include page="UserFooter.jsp" />
     </div>
 </body>
 </html>

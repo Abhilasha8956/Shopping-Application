@@ -65,6 +65,7 @@
             </div>
         </footer>
     </div>
+    
     <%
     if("POST".equals(request.getMethod())) {
         String id = request.getParameter("logid");
