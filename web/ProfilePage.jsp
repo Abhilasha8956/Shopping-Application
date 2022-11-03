@@ -48,7 +48,7 @@
                       ResultSet rs = st.executeQuery("Select * from allusers where uid ='"+a+"'");
                       while(rs.next()){
                 %>
-                    <form method="Post" action="">  
+                    <form method="Post" action="#">  
                     <h3>User Id:</h3>
                     <input type="text" id="uid" class="form-control w-75 m-2" value="<%= a %>" disabled="">
                     
