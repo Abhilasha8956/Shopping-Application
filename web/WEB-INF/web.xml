@@ -28,6 +28,14 @@
         <servlet-name>addOrder</servlet-name>
         <servlet-class>addOrder</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>updateProfile</servlet-name>
+        <servlet-class>updateProfile</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>updateProfileMult</servlet-name>
+        <servlet-class>updateProfileMult</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>loginServlet</servlet-name>
         <url-pattern>/loginServlet</url-pattern>
@@ -47,6 +55,14 @@
     <servlet-mapping>
         <servlet-name>addOrder</servlet-name>
         <url-pattern>/addOrder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateProfile</servlet-name>
+        <url-pattern>/updateProfile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateProfileMult</servlet-name>
+        <url-pattern>/updateProfileMult</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
