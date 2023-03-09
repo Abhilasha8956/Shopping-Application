@@ -57,7 +57,7 @@
                 <form action="editProductFinally.jsp" method="post">
                     <center>
                     <fieldset>
-                        <legend class="text-decoration-underline">Edit Product Details <%= id %></legend>
+                        <legend class="text-decoration-underline">Edit Product Details</legend>
                         <input class="form-control" type="hidden" name="pid" value="<%= id %>">
                             <table class="text-white">
                                 <tr>
